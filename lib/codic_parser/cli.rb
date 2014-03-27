@@ -7,14 +7,21 @@ module CodicParser
   class CLI < Thor
     desc "get word", "request word for codic.jp"
     option :all, :type => :boolean
-    option :nd, :type => :boolean
+    option :nd,  :type => :boolean
+    option :su,   :type => :boolean
     def get(word)
       text = []
       desc = []
 
-
       doc = Nokogiri::HTML(open("http://codic.jp/search?q=#{URI::encode(word)}&via=is"))
       if /[a-zA-z0-9]/.match(word)
+
+        if options[:su]
+          doc.css('section.entry-list li').each do |link|
+            puts link.content
+          end
+          exit
+        end
 
         doc.css("#relations li a.seltext").each do |link|
           text.push(link.content)
@@ -38,6 +45,13 @@ module CodicParser
         end
 
       else
+
+        if options[:su]
+          doc.css('section.entry-list li').each do |link|
+            puts link.content
+          end
+          exit
+        end
 
         doc.css('.translation .post a').each do |link|
           puts link.content
