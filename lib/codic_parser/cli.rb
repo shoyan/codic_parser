@@ -6,9 +6,9 @@ require "open-uri"
 module CodicParser
   class CLI < Thor
     desc "get word", "request word for codic.jp"
-    option :all, :type => :boolean
-    option :nd,  :type => :boolean
-    option :su,   :type => :boolean
+    option :all, :type => :boolean, :aliases => :a
+    option :nodesc,  :type => :boolean, :aliases => :n
+    option :entryonly,  :type => :boolean, :aliases => :e
     def get(word)
       text = []
       desc = []
@@ -16,7 +16,7 @@ module CodicParser
       doc = Nokogiri::HTML(open("http://codic.jp/search?q=#{URI::encode(word)}&via=is"))
       if /[a-zA-z0-9]/.match(word)
 
-        if options[:su]
+        if options[:entryonly]
           doc.css('section.entry-list li').each do |link|
             puts link.content
           end
@@ -31,7 +31,7 @@ module CodicParser
         end
 
         text.each_index do |i|
-          if options[:nd]
+          if options[:nodesc]
             puts "#{text[i]}"
           else
             puts "#{text[i]} / #{desc[i]}"
@@ -46,7 +46,7 @@ module CodicParser
 
       else
 
-        if options[:su]
+        if options[:entryonly]
           doc.css('section.entry-list li').each do |link|
             puts link.content
           end
