@@ -7,6 +7,7 @@ module CodicParser
   class CLI < Thor
     desc "get word", "request word for codic.jp"
     option :all, :type => :boolean
+    option :nd, :type => :boolean
     def get(word)
       text = []
       desc = []
@@ -23,7 +24,11 @@ module CodicParser
         end
 
         text.each_index do |i|
-          puts "#{text[i]} / #{desc[i]}"
+          if options[:nd]
+            puts "#{text[i]}"
+          else
+            puts "#{text[i]} / #{desc[i]}"
+          end
         end
 
         if options[:all]
@@ -31,6 +36,7 @@ module CodicParser
             puts link.content
           end
         end
+
       else
 
         doc.css('.translation .post a').each do |link|
