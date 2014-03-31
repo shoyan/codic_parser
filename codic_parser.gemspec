@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = CodicParser::VERSION
   spec.authors       = ["Shohei Yamasaki"]
   spec.email         = ["shyamasaki@gmail.com"]
-  spec.summary       = %q{parse of codic.jp}
-  spec.description   = %q{parse of codic.jp}
-  spec.homepage      = ""
+  spec.summary       = %q{CodicParser is a command-line interface.Parse of codic.jp.}
+  spec.description   = %q{CodicParser is a command-line interface.Parse of codic.jp.}
+  spec.homepage      = "https://github.com/shoyan/codic_parser"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
