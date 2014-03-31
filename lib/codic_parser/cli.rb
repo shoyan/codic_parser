@@ -7,7 +7,7 @@ module CodicParser
   class CLI < Thor
     desc "get word", "request word for codic.jp"
     option :all, :type => :boolean, :aliases => :a
-    option :nodesc,  :type => :boolean, :aliases => :n
+    option :nodesc,  :type => :boolean, :aliases => :l
     option :entryonly,  :type => :boolean, :aliases => :e
     def get(word)
       @parser = CodicParser::ParserFactory.get(word)
