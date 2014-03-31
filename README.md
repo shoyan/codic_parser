@@ -1,25 +1,38 @@
 # CodicParser
 
-TODO: Write a gem description
+CodicParserは[codic.jp](http://codic.jp)をコマンドラインより使えるようにしたコマンドラインツールです。
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'codic_parser'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
+### RubyGems
     $ gem install codic_parser
 
 ## Usage
 
-TODO: Write usage instructions here
+### Get
+```
+$ codic_parser get query_string
+> show word list and description.
 
+$ codic_parser get -l query_string
+> exclude description.
+
+$ codic_parser get -e query_string
+> show entry list.
+
+$ codic_parser get -a query_string
+> show word list and entry list.
+
+```
+### Browse
+```
+$ codic_parser browse
+> open http://codic.jp
+
+$ codic_parser browse query_string
+> open http://codic.jp //検索結果ページ
+
+```
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/codic_parser/fork )
