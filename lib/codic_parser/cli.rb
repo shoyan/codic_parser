@@ -22,8 +22,8 @@ module CodicParser
     end
 
     desc "browse", "opened in a browser"
-    def browse
-      CodicParser::Browse.open
+    def browse(word = nil)
+      CodicParser::Browse.open(word)
     end
   end
 end
