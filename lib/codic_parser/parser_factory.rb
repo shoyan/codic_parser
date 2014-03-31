@@ -1,5 +1,7 @@
 require "codic_parser/parser/parser.rb"
 require "codic_parser/parser/mb_parser.rb"
+require "nokogiri"
+require "open-uri"
 
 module CodicParser
   class ParserFactory

@@ -1,7 +1,4 @@
-require "codic_parser"
 require "thor"
-require "nokogiri"
-require "open-uri"
 
 module CodicParser
   class CLI < Thor
