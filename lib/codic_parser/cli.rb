@@ -10,36 +10,17 @@ module CodicParser
     option :nodesc,  :type => :boolean, :aliases => :n
     option :entryonly,  :type => :boolean, :aliases => :e
     def get(word)
+      @parser = CodicParser::ParserFactory.get(word)
 
-      if /[a-zA-z0-9]/.match(word)
+      if options[:entryonly]
+        @parser.entry_list
+        exit
+      end
 
-        @parser = CodicParser::Parser.new(word)
+      @parser.word_list(options)
 
-        if options[:entryonly]
-          @parser.entry_list
-          exit
-        end
-
-        @parser.word_list(options)
-
-        if options[:all]
-          @parser.all(options)
-        end
-
-      else
-
-        @parser = CodicParser::MbParser.new(word)
-
-        if options[:entryonly]
-          @parser.entry_list
-          exit
-        end
-
-        @parser.word_list
-
-        if options[:all]
-          @parser.all
-        end
+      if options[:all]
+        @parser.all(options)
       end
     end
 

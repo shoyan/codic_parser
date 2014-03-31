@@ -4,7 +4,7 @@ module CodicParser
       @doc = Nokogiri::HTML(open("http://codic.jp/search?q=#{URI::encode(word)}&via=is"))
     end
 
-    def word_list
+    def word_list(options = {})
       @doc.css('.translation .post a').each do |link|
         puts link.content
       end
@@ -16,8 +16,8 @@ module CodicParser
       end
     end
 
-    def all
-      self.word_list
+    def all(options = {})
+      self.word_list(options)
       self.entry_list
     end
   end
