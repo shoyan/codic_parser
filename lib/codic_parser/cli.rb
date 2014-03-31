@@ -67,7 +67,7 @@ module CodicParser
 
     desc "browse", "opened in a browser"
     def browse
-      system('open http://codic.jp')
+      CodicParser::Browse.open
     end
   end
 end
