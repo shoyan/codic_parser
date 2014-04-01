@@ -3,6 +3,8 @@
 CodicParserは[codic.jp](http://codic.jp)をコマンドラインより使えるようにしたコマンドラインツールです。
 
 ## Installation
+Dependencies:
+* **Ruby 1.8.7** or newer
 
 ### RubyGems
     $ gem install codic_parser
