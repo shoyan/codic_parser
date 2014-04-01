@@ -22,5 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   spec.add_dependency 'thor'
-  spec.add_dependency 'nokogiri'
+  spec.add_dependency 'nokogiri', '~> 1.5.10'
 end
