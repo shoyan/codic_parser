@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CodicParser::VERSION
   spec.authors       = ["Shohei Yamasaki"]
   spec.email         = ["shyamasaki@gmail.com"]
-  spec.summary       = %q{CodicParser is a command-line interface.Parse of codic.jp.}
-  spec.description   = %q{CodicParser is a command-line interface.Parse of codic.jp.}
+  spec.summary       = %q{CodicParser is a command-line interface. Codic.jp via terminal.}
+  spec.description   = %q{CodicParser is a command-line interface. Codic.jp via terminal.}
   spec.homepage      = "https://github.com/shoyan/codic_parser"
   spec.license       = "MIT"
 
