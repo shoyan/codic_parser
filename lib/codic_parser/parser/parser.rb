@@ -15,6 +15,9 @@ module CodicParser
         desc.push(link.content)
       end
 
+      text.uniq!
+      desc.uniq!
+
       text.each_index do |i|
         if options[:nodesc]
           puts "#{text[i]}"
