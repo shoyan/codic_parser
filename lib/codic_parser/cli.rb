@@ -6,18 +6,26 @@ module CodicParser
     option :all, :type => :boolean, :aliases => :a
     option :nodesc,  :type => :boolean, :aliases => :l
     option :entryonly,  :type => :boolean, :aliases => :e
+    option :wordlist, :type => :boolean, :aliases => :w
+    option :hidetranslation, :type => :boolean, :aliases => :h
     def get(word)
       @parser = CodicParser::ParserFactory.get(word)
 
-      if options[:entryonly]
-        @parser.entry_list
+      if options[:all]
+        @parser.all(options)
         exit
       end
 
-      @parser.word_list(options)
+      if options[:entryonly]
+        @parser.entry_list
+      end
 
-      if options[:all]
-        @parser.all(options)
+      if options[:wordlist]
+        @parser.word_list(options)
+      end
+
+      unless options[:hidetranslation]
+        @parser.translation(options)
       end
     end
 

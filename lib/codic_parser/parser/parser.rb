@@ -4,6 +4,28 @@ module CodicParser
       @doc = Nokogiri::HTML(open("http://codic.jp/search?q=#{URI::encode(word)}&via=is"))
     end
 
+    def translation(options= {} )
+      numbers = []
+      words   = []
+      translations = []
+
+      @doc.css("#translations li .no").each do |link|
+        numbers.push(link.content)
+      end
+
+      @doc.css("#translations li .word-class").each do |link|
+        words.push(link.content)
+      end
+
+      @doc.css("#translations li .translated").each do |link|
+        translations.push(link.content)
+      end
+
+      numbers.each_index do |i|
+        puts "#{numbers[i]} #{words[i]} #{translations[i]}"
+      end
+    end
+
     def word_list(options= {} )
       text = []
       desc = []
@@ -34,6 +56,7 @@ module CodicParser
     end
 
     def all(options = {})
+      self.translation
       self.word_list(options)
       self.entry_list
     end
