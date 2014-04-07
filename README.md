@@ -14,16 +14,19 @@ Dependencies:
 ### Get
 ```
 $ codic_parser get query_string
-> show word list and description.
+> show translation.
 
-$ codic_parser get -l query_string
+$ codic_parser get -w query_string
+word list and description.
+
+$ codic_parser get -l -w query_string
 > exclude description.
 
 $ codic_parser get -e query_string
 > show entry list.
 
 $ codic_parser get -a query_string
-> show word list and entry list.
+> show translation, word list and entry list.
 
 ```
 ### Browse
