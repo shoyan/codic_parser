@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    codic_parser (0.0.2)
+    codic_parser (0.1.0)
       nokogiri (~> 1.5, >= 1.5.10)
       thor (~> 0)
 
